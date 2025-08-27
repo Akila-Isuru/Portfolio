@@ -5,8 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
     <link rel="stylesheet" href="/CSS/stylesheet.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2eT0kG7R/d/H44aI9Qd/WqP4hM6C3jJ5F3aQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
-    <h1>Porfolio</h1>
+    <div id="header">
+      <div class="container">
+        <nav>
+          <img
+            src="/CSS/assets/Gemini_Generated_Image_logv5nlogv5nlogv.png"
+            alt="logo"
+            class="logo"
+          />
+          <ul id="sidemenu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+            <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
+          </ul>
+          <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <div class="header-text">
+          <p>Hello It's Me</p>
+          <p>Akila Isuru</p>
+          <p>And I'm a <span id="auto-type"></span></p>
+        </div>
+      </div>
+    </div>
+
+    <div id="about">
+      <div class="container"></div>
+    </div>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="/CSS/script.js"></script>
   </body>
 </html>
