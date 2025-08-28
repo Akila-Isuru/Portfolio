@@ -12,6 +12,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
   <body>
     <div id="header">
@@ -23,15 +24,15 @@
             class="logo"
           />
           <ul id="sidemenu">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#header">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
             <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
           </ul>
           <i class="fa-solid fa-bars" onclick="showMenu()"></i>
         </nav>
-        <div class="header-text">
+        <div class="header-text" data-aos="fade-up" data-aos-duration="1500">
           <p>Hello It's Me</p>
           <p>Akila Isuru</p>
           <p>And I'm a <span id="auto-type"></span></p>
@@ -40,10 +41,155 @@
     </div>
 
     <div id="about">
-      <div class="container"></div>
+      <div class="about-me-container">
+        <div class="image-container" data-aos="fade-right">
+          <img
+            src="/CSS/assets/Screenshot 2025-08-29 at 00.03.01.png"
+            alt="About image"
+          />
+        </div>
+        <div class="content-container" data-aos="fade-left">
+          <h2>About Me</h2>
+          <p>
+            Hey,I am Akila Isuru Kahingala and I'm 22 years old. I am currently
+            studying to become an IT Professional in Software Engineering
+            Institute. I hope to work as a fullstack developer in the near
+            future. I am currently studying web developing, mobile developing
+            and I am interested in coding, music,traveling and gaming.
+          </p>
+          <div class="tabs-container">
+            <a href="#" class="tab active" onclick="openTab('skills')"
+              >Main Skills</a
+            >
+            <a href="#" class="tab" onclick="openTab('education')"
+              >Education & Certification</a
+            >
+          </div>
+
+          <div class="skills-list active-tab" id="skills">
+            <h3>User experience design - UI/UX</h3>
+            <p>Delight the user and make it work.</p>
+            <h3>Web and User Interface Design - Development</h3>
+            <p>Web Sites, Web experience</p>
+            <h3>Software - Development</h3>
+            <p>Data Handling, Front-end, back-end, POS System</p>
+          </div>
+
+          <div class="skills-list" id="education">
+            <h3>Bachelor's Degree in Software Engineering</h3>
+            <p>Software Engineering Institute</p>
+            <h3>Certified Web Developer</h3>
+            <p>XYZ Certification Authority</p>
+            <h3>Mobile Application Development Course</h3>
+            <p>ABC Training Center</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="services">
+      <div class="services-container">
+        <h2 data-aos="fade-up">My Services</h2>
+        <div class="services-grid">
+          <div class="service-card" data-aos="flip-left" data-aos-delay="100">
+            <i class="fa-solid fa-code"></i>
+            <h3>Web Design</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nulla
+              nibh, tincidunt sit amet sapien quis.
+            </p>
+            <a href="#">Learn More</a>
+          </div>
+          <div class="service-card" data-aos="flip-left" data-aos-delay="300">
+            <i class="fa-solid fa-crop-simple"></i>
+            <h3>UI/UX Design</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nulla
+              nibh, tincidunt sit amet sapien quis.
+            </p>
+            <a href="#">Learn More</a>
+          </div>
+          <div class="service-card" data-aos="flip-left" data-aos-delay="500">
+            <i class="fa-brands fa-apple"></i>
+            <h3>App Design</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nulla
+              nibh, tincidunt sit amet sapien quis.
+            </p>
+            <a href="#">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="contact" style="height: 200px; background-color: #080808">
+      <h2 style="color: white; text-align: center; padding-top: 50px">
+        Contact Me
+      </h2>
     </div>
 
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <script src="/CSS/script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      /* Typing Effect */
+      var typed = new Typed("#auto-type", {
+        strings: ["Fullstack Developer", "Web Designer", "UI/UX Designer"],
+        typeSpeed: 100,
+        backSpeed: 60,
+        loop: true,
+        cursorChar: "|",
+      });
+
+      /* Navigation Menu */
+      var sideMenu = document.getElementById("sidemenu");
+      var header = document.getElementById("header");
+
+      function showMenu() {
+        sideMenu.style.right = "0";
+      }
+
+      function hideMenu() {
+        sideMenu.style.right = "-200px";
+      }
+
+      /* About Section Tabs */
+      var tabLinks = document.getElementsByClassName("tab");
+      var tabContents = document.getElementsByClassName("skills-list");
+
+      function openTab(tabName) {
+        for (tablink of tabLinks) {
+          tablink.classList.remove("active");
+        }
+        for (tabContent of tabContents) {
+          tabContent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active");
+        document.getElementById(tabName).classList.add("active-tab");
+      }
+
+      /* Initialize AOS */
+      AOS.init({
+        offset: 120, // offset (in px) from the original trigger point
+        delay: 0, // values from 0 to 3000, with step 50ms
+        duration: 800, // values from 0 to 3000, with step 50ms
+        easing: "ease", // default easing for AOS animations
+        mirror: false, // whether elements should animate out while scrolling past them
+        anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
+      });
+
+      /* Simple Scroll-based animation for the header text. */
+      window.addEventListener("scroll", function () {
+        var headerText = document.querySelector(".header-text");
+        var scrollY = window.scrollY;
+
+        if (scrollY > 50) {
+          headerText.style.transform = "translateY(-20px)";
+          headerText.style.opacity = 0.5;
+        } else {
+          headerText.style.transform = "translateY(0)";
+          headerText.style.opacity = 1;
+        }
+      });
+    </script>
   </body>
 </html>
